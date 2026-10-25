@@ -4,7 +4,7 @@ Verified locally on 25 October 2026 with Node v24.22.1, npm 11.19.1 and Python 3
 
 ## Automated checks
 
-`python3 scripts/check.py` runs the backend suite and the frontend TypeScript/production build. The current suite has **61 passing tests**. Covered paths include memory CRUD, privacy in audit entries, custom skills, versioned evolution with stale/replayed decision rejection, browser host/origin/header checks, provider context consent and generic error fallback, plus these additions:
+`python3 scripts/check.py` runs the backend suite and the frontend TypeScript/production build. The current suite has **62 passing tests**. Covered paths include memory CRUD, privacy in audit entries, custom skills, versioned evolution with stale/replayed decision rejection, browser host/origin/header checks, provider context consent and generic error fallback, plus these additions:
 
 - All six curated practice problems, numerical and unit validation, non-finite inputs, progressive hints, saved session resumption and profile counters.
 - Separate assisted work after solution reveal, no repeated credit within a solved session, and practice-level progression based on distinct solved problems.
@@ -12,6 +12,8 @@ Verified locally on 25 October 2026 with Node v24.22.1, npm 11.19.1 and Python 3
 - Editable exact calendar proposals, validation of future times and duration, permission revocation and disconnection, expiry, concurrent decisions, conflicts checked again at execution, and rejection audit events after transaction rollback.
 - Calendar export escaping for CR/LF, punctuation and Unicode line folding. Only approved local event IDs can export.
 - Provider endpoint allowlisting, no redirects, no executable model tools, malformed-response fallback, and model runtime metadata recorded only after a successful typed generation result matching the active settings.
+
+The packaging regression test also checks the stable `cudarex-hackathon` folder name from a repository folder called `platform`, retains legitimate frontend data assets, and excludes environment secrets, runtime records, dependencies and build work.
 
 Tests use temporary SQLite databases and provider stubs. They make no live model requests or external account actions. The frontend build checks TypeScript and bundles local assets. The GitHub Actions workflow is prepared but does not count as a completed remote CI run until GitHub reports its result.
 

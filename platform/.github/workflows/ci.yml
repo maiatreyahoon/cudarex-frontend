@@ -25,3 +25,14 @@ jobs:
         working-directory: frontend
       - run: npm run build
         working-directory: frontend
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Package the tested source build
+        run: python3 scripts/package.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cudarex-hackathon-test-build
+          path: ../cudarex-hackathon.zip
+          retention-days: 90
+          if-no-files-found: error

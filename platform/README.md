@@ -4,7 +4,7 @@ AURA is the assistant inside CUDAREX, a local personal AI workspace for students
 
 This hackathon build brings persistent memory, reusable skills, bounded practice, and reviewed calendar actions into one React + FastAPI app. It extends the earlier frontend. Your older `cudarex-mvp` folder can stay where it is.
 
-**Start with [MAC-START-HERE.md](MAC-START-HERE.md).** No AI key is needed to run the local demonstration. A real Nebius request using an NVIDIA model is still required before treating the project as ready for this hackathon.
+**Start with [MAC-START-HERE.md](MAC-START-HERE.md).** GitHub checkout and judge testing instructions are in [docs/JUDGES.md](docs/JUDGES.md). No AI key is needed to run the local demonstration. A real Nebius request using an NVIDIA model is still required before treating the project as ready for this hackathon.
 
 ## Start the app
 
