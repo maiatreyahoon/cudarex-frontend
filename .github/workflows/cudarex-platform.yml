@@ -1,0 +1,38 @@
+name: CUDAREX checks
+on: [push, pull_request]
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r requirements.txt
+        working-directory: platform/backend
+      - run: python -m pytest -q
+        working-directory: platform/backend
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: platform/frontend/package-lock.json
+      - run: npm ci
+        working-directory: platform/frontend
+      - run: npm run build
+        working-directory: platform/frontend
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Package the tested source build
+        run: python3 platform/scripts/package.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cudarex-hackathon-test-build
+          path: cudarex-hackathon.zip
+          retention-days: 90
+          if-no-files-found: error

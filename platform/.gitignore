@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.venv/
+.env
+*.sqlite3*
+__pycache__/
+.pytest_cache/
+*.tsbuildinfo
+.DS_Store
+
+submission/.build/
+.frontend-lock.sha256

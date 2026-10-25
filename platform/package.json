@@ -1,0 +1,11 @@
+{
+  "name": "cudarex-hackathon",
+  "version": "2.0.0",
+  "private": true,
+  "description": "CUDAREX personal AI workspace with AURA",
+  "license": "MIT",
+  "scripts": {
+    "start": "python3 scripts/start.py",
+    "check": "python3 scripts/check.py"
+  }
+}
